@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello {{ name }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Flask 模板網站 </h1>
+    {% extends "base.html" %}
+    {% block title %}Hello {{ name }}{% endblock %}
+    {% block content %}
+        <h2> 哈囉， {{ name }} ！ </h2>
+        <img src="{{ url_for('static', filename='image.png') }}" alt=" 圖片 " width="150">
+        <hr>
+            <!-- 2.5.1 變量（含字典 / 串列存取） -->
+            <h3> 變量示範 </h3>
+            <p> 使用者名稱（變量）： {{ name }}</p>
+            <p> 使用者信箱（字典）： {{ user.email }}</p>
+            <p> 第一個項目（串列索引）： {{ items[0] }}</p>
+        <hr>
+            <!-- 2.5.2 標籤：條件判斷 if / elif / else -->
+            <h3> 條件判斷（ if / elif / else ） </h3>
+            <p> 分數： {{ score }}</p>
+            {% if score >= 90 %}
+                <p> 等第： A （太強了！） </p>
+            {% elif score >= 60 %}
+                <p> 等第： B （及格，繼續加油） </p>
+            {% else %}
+                <p> 等第： C （需要補強） </p>
+            {% endif %}
+        <hr>
+            <!-- 2.5.2 標籤： for 迴圈 -->
+            <h3>for 迴圈（列出功能清單） </h3>
+            <ol>
+                {% for it in items %}
+                    <li>{{ loop.index }}. {{ it }}</li>
+            {% endfor %}
+            </ol>
+        <hr>
+    {% endblock %}
+    </body>
+</html>
