@@ -6,10 +6,10 @@ app = Flask(__name__) # 建立 Flask 應用程式物件
 def home():
     #return "Hello FlaskBook!" # 回傳給瀏覽器顯示的文字
     homepage = "<h1>Flask 範例主選單 </h1>"
-    homepage += "<a href='/user/ 小明 '> 使用動態路由 </a><br>"
+    homepage += "<a href='/user/ 梓 '> 使用動態路由 </a><br>"
     homepage += "<a href='/search?keyword=flask&limit=5'>GET傳遞參數 </a><br>"
     homepage += "<a href='/poster'>POST 表單傳值 </a><br>"
-    homepage += "<a href='/hello/Tom?score=75'> 模板渲染（ Template ） </a><br>"
+    homepage += "<a href='/hello/zi?score=90'> 模板渲染（ Template ） </a><br>"
     return homepage
 
 @app.route("/user/<string:name>")
@@ -51,7 +51,7 @@ def poster():
 @app.route('/hello/<string:name>')
 def hello(name):
     score = request.args.get("score", default=80, type=int)
-    user = {"name": name, "email": "tom@example.com"}
+    user = {"name": name, "email": "aaa@example.com"}
     items = ["Flask", "Jinja", "Blueprint", "WTForms"]
     # 傳送參數給模板， **locals() 代表傳送所有本地變數
     return render_template('hello.html', **locals())
