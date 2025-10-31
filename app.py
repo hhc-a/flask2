@@ -4,7 +4,7 @@ app = Flask(__name__) # 建立 Flask 應用程式物件
 # 定義一個路由與對應函式
 @app.route("/")
 def home():
-    return "Hello FlaskBook!" # 回傳給瀏覽器顯示的文字
+    #return "Hello FlaskBook!" # 回傳給瀏覽器顯示的文字
     homepage = "<h1>Flask 範例主選單 </h1>"
     homepage += "<a href='/user/ 小明 '> 使用動態路由 </a><br>"
     homepage += "<a href='/search?keyword=flask&limit=5'>GET傳遞參數 </a><br>"
